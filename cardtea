@@ -113,7 +113,7 @@ fi
 
 # For Darwin, add options to specify how the application appears in the dock
 if $darwin; then
-    CARDTEA_OPTS="$CARDTEA_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
+    CARDTEA_OPTS="$CARDTEA_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/cardtea.icns\""
 fi
 
 # For Cygwin, switch paths to Windows format before running java
@@ -164,7 +164,7 @@ fi
 function splitJvmOpts() {
     JVM_OPTS=("$@")
 }
-eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS
-JVM_OPTS[${#JVM_OPTS[*]}]="-Dorg.gradle.appname=$APP_BASE_NAME"
+eval splitJvmOpts $DEFAULT_JVM_OPTS $JAVA_OPTS $CARDTEA_OPTS
+JVM_OPTS[${#JVM_OPTS[*]}]="-Dorg.cardtea.appname=$APP_BASE_NAME"
 
-exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.gradle.wrapper.GradleWrapperMain "$@"
+exec "$JAVACMD" "${JVM_OPTS[@]}" -classpath "$CLASSPATH" org.cardtea.wrapper.cardteaWrapperMain "$@"
